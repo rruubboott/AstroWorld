@@ -1,4 +1,20 @@
 ---
+const pageTitle = "About Me"
+
+
+
+const identity = {
+  firstName: "rubot",
+  country: "Ireland",
+  occupation: "Techno Mage",
+  hobbies: ["magic", "sitting", "walking"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Ancient Arts"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 
 ---
 
@@ -8,14 +24,26 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
 		<a href="/">Index</a>
         <a href="/about">About</a>
 		<a href="/blog">Blog</a>
-		<h1>Astro</h1>
-		<h1>About</h1>
+
+		<h1>{pageTitle}</h1>
         <p>This is my amazing new website. I am amazing. You are amazing.</p>
+        <p>Some facts about me:</p>
+        <ul>
+            <li>My name is {identity.firstName}</li>
+            <li>I live in {identity.country}</li>
+        </ul>
+        <p>My skills are</p>
+        <ul>
+            {skills.map((skill)=><li>{skill}</li>)}
+        </ul>
+        { happy && <p>I am happy</p>}
+        { finished && <p>I finished this tutorial</p>}
+        { goal===3 ? <p>I am self actualised</p> : <p>Not self actualised</p>}
 	</body>
 </html>
