@@ -1,10 +1,6 @@
 ---
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "About Me"
-
-
 
 const identity = {
   firstName: "rubot",
@@ -24,31 +20,8 @@ const fontWeight = 700;
 const textCase = "uppercase";
 
 ---
+<BaseLayout pageTitle={pageTitle}>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-        <style define:vars={{skillColour, fontWeight, textCase}}>
-            h1 {
-              color: purple;
-              font-size: 4rem;
-            }
-
-            .skill {
-                color:var(--skillColour);
-                font-weight:var(--fontWeight);
-                text-transform:var(--textCase);
-            }
-          </style>
-	</head>
-	<body>
-		<Header />
-
-		<h1>{pageTitle}</h1>
         <p>This is my amazing new website. I am amazing. You are amazing.</p>
         <p>Some facts about me:</p>
         <ul>
@@ -62,9 +35,4 @@ const textCase = "uppercase";
         { happy && <p>I am happy</p>}
         { finished && <p>I finished this tutorial</p>}
         { goal===3 ? <p>I am self actualised</p> : <p>Not self actualised</p>}
-        <Footer />
-        <script>
-			import "../scripts/menu.js";
-		  </script>
-	</body>
-</html>
+      </BaseLayout>
